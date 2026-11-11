@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The premium ambient grid: a quiet 2x2 of places over a hand-drawn backdrop.
+  Square, and the largest default footprint of the four, because the texture
+  behind the times needs room to read as texture rather than as noise.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:configure="com.pj95.clockwise.widget.WidgetConfigActivity"
+    android:description="@string/widget_ambient_description"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:minHeight="180dp"
+    android:minResizeHeight="180dp"
+    android:minResizeWidth="180dp"
+    android:minWidth="180dp"
+    android:previewImage="@drawable/widget_preview"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="3"
+    android:targetCellWidth="3"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen"
+    tools:targetApi="31" />

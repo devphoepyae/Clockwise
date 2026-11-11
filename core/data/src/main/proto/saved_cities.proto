@@ -1,0 +1,110 @@
+/**
+ * Proto schema for user state persisted with Jetpack Proto DataStore.
+ *
+ * Saved cities are stored as an ordered list of stable city ids so that the
+ * user's ordering survives restarts (a set would lose the order). The active
+ * city, the 12h/24h display preference and the theme choice are stored
+ * alongside them.
+ */
+syntax = "proto3";
+
+package com.pj95.clockwise.data.prefs;
+
+option java_package = "com.pj95.clockwise.data.prefs";
+option java_multiple_files = true;
+option java_outer_classname = "SavedCitiesProto";
+
+/**
+ * The light/dark choice of an older build. Superseded by `SavedAppTheme`.
+ *
+ * Kept so a store written before the five themes existed still reads: the old
+ * values are migrated on read (see `toMigratedAppTheme`). Nothing writes this
+ * field any more, and the next theme change clears it.
+ */
+enum SavedThemeMode {
+  // Proto3 enums must have a zero value. A store written before theme support
+  // existed carries no value at all, and "follow the device" was the right
+  // behaviour for both that case and an explicit system choice.
+  THEME_MODE_SYSTEM = 0;
+  THEME_MODE_LIGHT = 1;
+  THEME_MODE_DARK = 2;
+}
+
+/**
+ * One of the five themes the app ships.
+ *
+ * Named `SavedAppTheme` rather than `AppTheme` so it cannot collide with the
+ * domain enum of the same concept. The numbers are the ids the theme is
+ * identified by everywhere else (0-4, in the order the design lists them).
+ */
+enum SavedAppTheme {
+  SAVED_APP_THEME_LIGHT_MONOCHROME = 0;
+  SAVED_APP_THEME_TRUE_DARK = 1;
+  SAVED_APP_THEME_WARM_SEPIA = 2;
+  SAVED_APP_THEME_COOL_SLATE = 3;
+  SAVED_APP_THEME_HIGH_CONTRAST = 4;
+  // Palette derived from the user's wallpaper/system colours. Added after the
+  // original five, so the existing numbers stay stable.
+  SAVED_APP_THEME_MATERIAL_YOU = 5;
+}
+
+message SavedCities {
+  // Ordered list of saved city ids. Order is significant.
+  repeated string city_ids = 1;
+
+  // Id of the currently selected city, or empty when nothing is selected.
+  string active_city_id = 2;
+
+  // Display preference. false = 12-hour, true = 24-hour. First launch seeds
+  // 24-hour to match the reference design.
+  bool use_24_hour = 3;
+
+  // False until the defaults have been seeded on first launch. This lets an
+  // empty city list mean "the user removed every city" rather than "new
+  // install".
+  bool seeded = 4;
+
+  // Light/dark preference of an older build. Superseded by `theme` below; read
+  // only to migrate a store written before the five themes existed.
+  SavedThemeMode theme_mode = 5;
+
+  // The user's own label for a city, keyed by city id, e.g.
+  // "tokyo" -> "Head Office". A missing key means "no label", so no migration
+  // is needed for stores written before labels existed.
+  map<string, string> city_labels = 6;
+
+  // The chosen theme (spec section 7). Optional so that "no choice stored
+  // yet" can be told apart from an explicit Light Monochrome: without the
+  // presence bit a store that only carries the legacy `theme_mode` would read
+  // back as the zero value and a dark-mode user would be handed the light
+  // theme on upgrade.
+  optional SavedAppTheme theme = 7;
+
+  // False until the first-launch intro has been dismissed. The presence bit
+  // matters: a store written by v2 and earlier has no value here and must not
+  // show the intro to someone who already knows the app, while a fresh install
+  // is seeded with an explicit false.
+  optional bool onboarding_completed = 8;
+
+  // Whether each clock shows how many hours ahead or behind it is from
+  // the device's own time. Clockwise ships with this off: the list is a pure
+  // clock list until the user asks for the comparison.
+  optional bool compare_with_local_time = 9;
+
+  // Clockwise's light/dark choice. Optional so a store written by an older
+  // build can be migrated from `theme` / `theme_mode` instead of silently
+  // landing on System.
+  optional SavedThemeModeSetting theme_mode_setting = 10;
+}
+
+/**
+ * Light/dark choice for the dynamic-colour theme.
+ *
+ * The value names are distinct from the retired `SavedThemeMode` so a store
+ * that carried the pre-3.1 three-mode field can never be read as this one.
+ */
+enum SavedThemeModeSetting {
+  SAVED_THEME_MODE_SETTING_SYSTEM = 0;
+  SAVED_THEME_MODE_SETTING_LIGHT = 1;
+  SAVED_THEME_MODE_SETTING_DARK = 2;
+}

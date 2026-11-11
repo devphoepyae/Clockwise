@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The Chronos market-session card: Sydney, Tokyo, London and New York, each
+  with its local time and an offline open/closed dot. Four rows plus a header
+  fit a four-by-three cell footprint at the default font scale.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:description="@string/widget_market_sessions_description"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:minHeight="170dp"
+    android:minResizeHeight="170dp"
+    android:minResizeWidth="250dp"
+    android:minWidth="250dp"
+    android:previewImage="@drawable/widget_preview"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="3"
+    android:targetCellWidth="4"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen"
+    tools:targetApi="31" />

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Clockwise app icon, background layer.
+
+  A deep navy field carrying a polished metal / enameled squircle rim. The rim
+  is drawn well inside the adaptive mask so it survives every launcher shape:
+  circular masks crop the corners, squircle and rounded-square masks keep the
+  whole frame, and the navy field still bleeds past the canvas.
+
+  Palette
+    field   #07182B  deep navy
+    facet   #0B2138  one step up, a soft top-left sheen
+    metal   #C9A35B  champagne-gold rim
+    inlay   #66E8CB86  a hairline enamel inlay inside the rim
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Base field, painted past the viewport so no mask exposes an edge. -->
+    <path
+        android:fillColor="#FF07182B"
+        android:pathData="M-8,-8 L116,-8 L116,116 L-8,116 Z" />
+
+    <!-- Soft diagonal sheen across the upper left. -->
+    <path
+        android:fillColor="#FF0B2138"
+        android:pathData="M-8,-8 L116,-8 L-8,116 Z" />
+
+    <!-- Polished squircle rim: 18..90 on both axes, 20 dp corners. -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M38,18 L70,18 A20,20 0 0,1 90,38 L90,70 A20,20 0 0,1 70,90 L38,90 A20,20 0 0,1 18,70 L18,38 A20,20 0 0,1 38,18 Z"
+        android:strokeColor="#FFC9A35B"
+        android:strokeWidth="3.4" />
+
+    <!-- Enamel inlay: a single hairline inside the metal. -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M39,22.4 L69,22.4 A16.6,16.6 0 0,1 85.6,39 L85.6,69 A16.6,16.6 0 0,1 69,85.6 L39,85.6 A16.6,16.6 0 0,1 22.4,69 L22.4,39 A16.6,16.6 0 0,1 39,22.4 Z"
+        android:strokeColor="#66E8CB86"
+        android:strokeWidth="1" />
+</vector>

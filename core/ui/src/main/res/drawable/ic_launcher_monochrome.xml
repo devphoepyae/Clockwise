@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Clockwise app icon, monochrome layer (Android 13+ themed icons).
+
+  The system tints this layer with the wallpaper's on-surface colour, so only
+  the alpha is meaningful. The watch reduces to its bezel, cardinal markers and
+  the 10:10:35 hands — still unmistakably a luxury watch at 24 px.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Bezel. -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,27 A27,27 0 1,0 54,81 A27,27 0 1,0 54,27 Z"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3.2" />
+
+    <!-- Cardinal markers. -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M52.9,32.4 L55.1,32.4 L55.1,37.2 L52.9,37.2 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M52.9,70.8 L55.1,70.8 L55.1,75.6 L52.9,75.6 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M70.8,52.9 L75.6,52.9 L75.6,55.1 L70.8,55.1 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M32.4,52.9 L37.2,52.9 L37.2,55.1 L32.4,55.1 Z" />
+
+    <!-- Hour hand at 10 o'clock. -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,54 L43.2,47.8"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="4.6" />
+
+    <!-- Minute hand at 10 minutes past. -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,54 L70.5,44.5"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="3.4" />
+
+    <!-- Second hand at 35 seconds. -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M56.4,43.1 L43.2,73.2"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.6" />
+
+    <!-- Centre pin. -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,51 A3,3 0 1,0 54,57 A3,3 0 1,0 54,51 Z" />
+</vector>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light monochrome palette (spec section 8). Values are duplicated in the
+         Compose theme; only the window background is needed here so the app does
+         not flash white before the first frame is drawn. -->
+    <color name="wc_background">#F3F3F1</color>
+
+    <!-- The adaptive app-icon background is drawable/ic_launcher_background.xml,
+         not a colour: the "Concept 3" field carries a diagonal facet, so the
+         launcher composes a drawable layer. PJ95 deep royal blue #0E2A66 is the
+         fill of that layer. -->
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The premium global-clocks card: three places, their local times and the days
+  they are already on. Four by three cells is what three rows plus a header
+  need at the default font scale.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:configure="com.pj95.clockwise.widget.WidgetConfigActivity"
+    android:description="@string/widget_global_clocks_description"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:minHeight="180dp"
+    android:minResizeHeight="180dp"
+    android:minResizeWidth="250dp"
+    android:minWidth="250dp"
+    android:previewImage="@drawable/widget_preview"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="3"
+    android:targetCellWidth="4"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen"
+    tools:targetApi="31" />

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Adaptive launcher icon, PJ95 "Concept 3" (spec section 8, icon).
+
+  Layered rather than flattened: the background is a drawable so the diagonal
+  facet survives the mask, the foreground is the mark, and the monochrome layer
+  serves Android 13+ themed icons. All three are vectors, so the icon is sharp
+  at every density without a raster asset in the APK.
+
+  The legacy raster mipmaps (mipmap-*/ic_launcher.png) still exist for tools
+  and launchers that read the base resource instead of the v26 variant; with
+  minSdk 26 they are never chosen at runtime on a supported device.
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background" />
+    <foreground android:drawable="@drawable/ic_launcher_foreground" />
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome" />
+</adaptive-icon>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The widget's card, drawn as a shape rather than a flat colour.
+
+  The fill is the app's light card token at 94% opacity: high enough that a busy
+  wallpaper can never make a city time hard to read, low enough that the card
+  still reads as translucent glass rather than a pasted-on rectangle. The
+  hairline outline keeps the edge visible on a light wallpaper, and the rounded
+  corners are part of the drawable so they render on every supported API — a
+  colour alone would be a square on Android 11 and below.
+
+  Kept in sync with `LightClockwisePalette.card` / `.border`.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F0FAFAF8" />
+    <corners android:radius="16dp" />
+    <stroke
+        android:width="1dp"
+        android:color="#33D9D9D6" />
+</shape>

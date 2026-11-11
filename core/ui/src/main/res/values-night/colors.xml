@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- True-dark palette (spec section 8). The window background is duplicated
+         from the Compose theme so a device in night mode does not flash white
+         before the first frame is drawn. -->
+    <color name="wc_background">#111111</color>
+</resources>

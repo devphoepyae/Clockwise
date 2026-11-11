@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Clockwise</string>
+
+    <!-- Clocks screen -->
+    <string name="clocks_eyebrow">GLOBAL CLOCKS</string>
+    <string name="clocks_title">Clockwise</string>
+    <string name="clocks_section_label">CITIES</string>
+    <string name="clocks_markets_label">MARKETS</string>
+    <string name="market_status_open">OPEN</string>
+    <string name="market_status_closed">CLOSED</string>
+    <string name="clocks_dst_caption">AUTO-ADJUSTS FOR DAYLIGHT SAVING</string>
+    <string name="clocks_loading">Loading your cities…</string>
+    <string name="clocks_add_city_action">ADD CITY</string>
+
+    <plurals name="clocks_city_count">
+        <item quantity="one">%1$d CITY</item>
+        <item quantity="other">%1$d CITIES</item>
+    </plurals>
+
+    <!-- Empty state -->
+    <string name="clocks_empty_title">No cities yet</string>
+    <string name="clocks_empty_hint">Add a city to track its local time.</string>
+    <string name="clocks_empty_action">Find a city</string>
+
+    <!-- Search sheet -->
+    <string name="search_title">Add a city</string>
+    <string name="search_placeholder">City, country or timezone</string>
+    <string name="search_clear">Clear search</string>
+    <string name="search_close">Close</string>
+    <string name="search_no_results_title">No cities found</string>
+    <string name="search_no_results_hint">Try a different city, country or timezone name.</string>
+
+    <!-- City detail -->
+    <string name="detail_back">Back</string>
+    <string name="detail_local_time_label">YOUR LOCAL TIME</string>
+    <string name="detail_view_on_map">View on map</string>
+    <string name="detail_remove">Remove</string>
+    <string name="format_12h">12h</string>
+    <string name="format_24h">24h</string>
+
+    <!-- Time difference -->
+    <string name="time_diff_same">Same time</string>
+    <string name="time_diff_hours">%1$d hrs</string>
+    <string name="time_diff_minutes">%1$d mins</string>
+    <string name="time_diff_hours_minutes">%1$d hrs %2$d mins</string>
+    <string name="time_diff_ahead">%1$s ahead</string>
+    <string name="time_diff_behind">%1$s behind</string>
+    <string name="detail_difference_label">COMPARED WITH YOUR LOCAL TIME</string>
+
+    <!-- City labels -->
+    <string name="detail_city_label_format">(%1$s)</string>
+    <string name="label_add">ADD LABEL</string>
+    <string name="label_edit">EDIT LABEL</string>
+    <string name="label_dialog_title">City label</string>
+    <string name="label_dialog_support">Shown after the city name, for example Tokyo (Head Office).</string>
+    <string name="label_dialog_placeholder">Head Office</string>
+    <string name="label_dialog_save">Save</string>
+    <string name="label_dialog_cancel">Cancel</string>
+    <string name="label_dialog_remove">Remove label</string>
+
+    <!-- Meeting planner -->
+    <string name="clocks_plan_action">PLAN A MEETING</string>
+    <string name="planner_eyebrow">FIND AN HOUR THAT WORKS</string>
+    <string name="planner_title">Meeting planner</string>
+    <string name="planner_source_label">FROM</string>
+    <string name="planner_source_device">LOCAL</string>
+    <string name="planner_time_in">TIME IN %1$s</string>
+    <string name="planner_local_label">YOUR LOCAL TIME</string>
+    <string name="planner_reference_meta">%1$s · %2$s</string>
+    <string name="planner_working_range">%1$02d:00–%2$02d:00</string>
+    <string name="planner_legend_working">WITHIN %1$s</string>
+    <string name="planner_legend_outside">OUTSIDE</string>
+    <string name="planner_section_label">YOUR CITIES AT THIS TIME</string>
+    <string name="planner_best_time">BEST %1$s</string>
+    <string name="planner_best_fallback">BEST TIME</string>
+    <string name="planner_no_overlap">NO OVERLAP</string>
+    <string name="planner_empty_title">No cities to plan for</string>
+    <string name="planner_empty_hint">Add a city, then find an hour that works for everyone.</string>
+    <string name="planner_empty_action">Find a city</string>
+
+    <!-- Alarms -->
+    <string name="alarms_eyebrow">ALWAYS ON TIME</string>
+    <string name="alarms_title">Alarms</string>
+    <string name="alarms_section_label">YOUR ALARMS</string>
+    <string name="alarms_loading">Loading your alarms…</string>
+    <string name="alarms_add_action">ADD ALARM</string>
+    <string name="alarms_empty_title">No alarms yet</string>
+    <string name="alarms_empty_hint">Set an alarm for the moment that matters.</string>
+    <string name="alarms_empty_action">Add an alarm</string>
+    <string name="alarms_exact_hint">Allow exact alarms so they ring on time.</string>
+    <string name="alarms_exact_action">ALLOW</string>
+    <string name="alarms_footnote">ALARMS FOLLOW YOUR DEVICE\'S TIME ZONE</string>
+    <string name="alarm_default_label">Alarm</string>
+    <string name="alarm_repeat_once">Once</string>
+    <string name="alarm_repeat_every_day">Every day</string>
+    <string name="alarm_repeat_weekdays">Weekdays</string>
+    <string name="alarm_repeat_weekends">Weekends</string>
+    <string name="alarm_editor_new_title">New alarm</string>
+    <string name="alarm_editor_edit_title">Edit alarm</string>
+    <string name="alarm_editor_close">Close</string>
+    <string name="alarm_editor_time_label">TIME</string>
+    <string name="alarm_editor_repeat_label">REPEAT</string>
+    <string name="alarm_editor_sound_label">SOUND</string>
+    <string name="alarm_editor_label_field">Label</string>
+    <string name="alarm_editor_label_placeholder">Wake up (optional)</string>
+    <string name="alarm_editor_save">SAVE ALARM</string>
+    <string name="alarm_editor_delete">DELETE ALARM</string>
+    <string name="alarm_sound_default">Default alarm sound</string>
+    <string name="alarm_sound_dialog_title">Alarm sound</string>
+    <string name="alarm_sound_dialog_support">Tap a sound to use it, or play it first.</string>
+    <string name="alarm_sound_dialog_done">Done</string>
+    <string name="alarm_sound_preview">Preview</string>
+    <string name="alarm_sound_stop">Stop</string>
+    <string name="alarm_am">AM</string>
+    <string name="alarm_pm">PM</string>
+    <string name="alarm_dismiss">Dismiss</string>
+    <string name="alarm_stop">Stop</string>
+    <string name="alarm_snooze">Snooze</string>
+    <string name="alarm_slide_to_stop">SLIDE TO STOP</string>
+    <string name="alarm_swipe_to_snooze">SWIPE UP TO SNOOZE</string>
+    <string name="alarm_ringing_auto_silence">Stops by itself after five minutes.</string>
+    <string name="alarm_deleted">Alarm deleted</string>
+    <string name="city_removed">City removed</string>
+    <string name="action_undo">UNDO</string>
+    <string name="alarm_channel_name">Alarms</string>
+    <string name="alarm_channel_description">Rings when one of your alarms is due.</string>
+    <string name="alarm_time_use_dial">Use the dial</string>
+    <string name="alarm_time_use_keypad">Type the time</string>
+    <string name="keypad_backspace">Backspace</string>
+    <string name="alarm_editor_schedule_label">SCHEDULE</string>
+    <string name="alarm_schedule_action">Schedule alarm</string>
+    <string name="alarm_schedule_clear">CLEAR</string>
+    <string name="alarm_schedule_confirm">Set date</string>
+    <string name="alarm_schedule_cancel">Cancel</string>
+    <string name="alarm_schedule_in_past">That date has already passed. Choose today or later.</string>
+    <string name="alarm_scheduled_on">Scheduled for %1$s</string>
+    <string name="alarm_editor_vibrate_label">VIBRATE</string>
+    <string name="alarm_editor_vibrate_hint">Vibrate while ringing</string>
+    <string name="a11y_alarm_schedule">Schedule this alarm for a date</string>
+    <string name="a11y_clear_schedule">Clear the scheduled date</string>
+
+    <plurals name="alarms_count">
+        <item quantity="one">%1$d ALARM</item>
+        <item quantity="other">%1$d ALARMS</item>
+    </plurals>
+
+    <!-- Timer -->
+    <string name="timer_title">Timer</string>
+    <string name="timer_close">Close timer</string>
+    <string name="timer_section_label">COUNTDOWN</string>
+    <string name="timer_loading">Loading your timer…</string>
+    <string name="timer_start">START TIMER</string>
+    <string name="timer_pause">PAUSE</string>
+    <string name="timer_resume">RESUME</string>
+    <string name="timer_cancel">CANCEL TIMER</string>
+    <string name="timer_reset">NEW TIMER</string>
+    <string name="timer_remaining">REMAINING</string>
+    <string name="timer_paused">PAUSED</string>
+    <string name="timer_finished_title">Time\'s up</string>
+    <string name="timer_finished_hint">Start a new countdown whenever you are ready.</string>
+    <string name="timer_finished_body">Your %1$s timer has finished.</string>
+    <string name="timer_dismiss">Dismiss</string>
+    <string name="timer_restart">Start again</string>
+    <string name="timer_add_minutes">+%1$d MIN</string>
+    <string name="timer_ringing_eyebrow">TIMER</string>
+    <string name="timer_default_label">Timer</string>
+    <string name="timer_footnote">TIMERS KEEP COUNTING WHILE THE APP IS CLOSED</string>
+    <string name="timer_exact_hint">Allow exact alarms so the timer rings on time.</string>
+    <string name="timer_hours">Hours</string>
+    <string name="timer_minutes">Minutes</string>
+    <string name="timer_seconds">Seconds</string>
+    <string name="timer_hours_short">HOURS</string>
+    <string name="timer_minutes_short">MINUTES</string>
+    <string name="timer_seconds_short">SECONDS</string>
+    <string name="timer_preset_hours">%1$d HR</string>
+    <string name="timer_preset_minutes">%1$d MIN</string>
+    <string name="timer_channel_running_name">Timer countdown</string>
+    <string name="timer_channel_running_description">A quiet notification showing the time left on a running timer.</string>
+    <string name="timer_channel_alert_name">Timer finished</string>
+    <string name="timer_channel_alert_description">Rings when a countdown reaches zero.</string>
+    <string name="timer_eyebrow">COUNTDOWN</string>
+    <string name="timer_edit_duration">Edit duration</string>
+    <string name="timer_add_one_minute">+1:00</string>
+    <string name="timer_screen_off_hint">ဖုန်း screen ပိတ်ထားလည်း Timer ဆက်လက် အလုပ်လုပ်ပါမည်</string>
+
+    <!-- Stopwatch -->
+    <string name="stopwatch_eyebrow">PRECISION TIMING</string>
+    <string name="stopwatch_title">Stopwatch</string>
+    <string name="stopwatch_section_label">STOPWATCH</string>
+    <string name="stopwatch_start">START</string>
+    <string name="stopwatch_pause">PAUSE</string>
+    <string name="stopwatch_reset">Reset stopwatch</string>
+    <string name="stopwatch_hint">Tap start to time an interval.</string>
+    <string name="stopwatch_footnote">THE STOPWATCH RUNS WHILE THE APP IS OPEN</string>
+    <string name="a11y_stopwatch_elapsed">Elapsed time %1$s</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_alarms">Alarms</string>
+    <string name="nav_clocks">Clocks</string>
+    <string name="nav_map">World map</string>
+
+    <!-- Map screen -->
+    <string name="map_title">World Time</string>
+    <string name="map_eyebrow">WHERE IT IS RIGHT NOW</string>
+    <string name="map_view_details">View details</string>
+    <string name="map_view_label">VIEW</string>
+    <string name="map_view_flat">2D</string>
+    <string name="map_view_globe">3D</string>
+    <string name="map_compare_label">COMPARE</string>
+    <string name="map_caption">TAP A MARKER TO SELECT · SHADED AREA IS NIGHT</string>
+    <string name="map_legend_selected">SELECTED</string>
+    <string name="map_legend_saved">SAVED CITY</string>
+    <string name="map_legend_night">IN NIGHT</string>
+    <string name="map_empty_title">No cities on the map</string>
+    <string name="map_empty_hint">Add a city to see where it sits on the globe.</string>
+    <string name="map_empty_action">Find a city</string>
+    <string name="map_live">LIVE</string>
+    <string name="map_time_travel">TIME TRAVEL</string>
+    <string name="map_now">NOW</string>
+    <string name="map_now_action">Return to live time</string>
+    <string name="map_device_meta">%1$s · %2$s</string>
+    <string name="map_solar_normal">SUNRISE %1$s · SUNSET %2$s</string>
+    <string name="map_solar_polar_day">MIDNIGHT SUN · NO SUNSET</string>
+    <string name="map_solar_polar_night">POLAR NIGHT · NO SUNRISE</string>
+
+    <!-- Settings sheet -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_eyebrow">PREFERENCES</string>
+    <string name="settings_theme_mode_label">THEME MODE</string>
+    <string name="settings_theme_mode_hint">System follows your phone. Light and Dark stay put.</string>
+    <string name="settings_format_label">TIME FORMAT</string>
+    <string name="settings_24_hour">24-hour format</string>
+    <string name="settings_24_hour_hint">Show 18:40 instead of 6:40 PM.</string>
+    <string name="settings_comparison_label">TIME COMPARISON</string>
+    <string name="settings_compare_local_time">Compare with local time</string>
+    <string name="settings_compare_local_time_hint">Shows how many hours ahead or behind each city is. Off by default.</string>
+    <string name="settings_permissions_label">ALARMS &amp; PERMISSIONS</string>
+    <string name="settings_permissions_hint">These let Clockwise ring on time, even on the lock screen. Tap a row to change it in system settings.</string>
+    <string name="permission_notifications">Notifications</string>
+    <string name="permission_exact_alarms">Exact alarms</string>
+    <string name="permission_full_screen">Full-screen alarms</string>
+    <string name="permission_battery">Battery optimisation</string>
+    <string name="permission_dnd">Do Not Disturb</string>
+    <string name="permission_allowed">ALLOWED</string>
+    <string name="permission_needs_attention">NEEDS ATTENTION</string>
+    <string name="settings_legal_title">Legal &amp; Support</string>
+    <string name="settings_legal_support">Privacy, guide, terms, licenses and the version behind it all.</string>
+
+    <!-- Theme modes -->
+    <string name="theme_mode_system">System</string>
+    <string name="theme_mode_light">Light</string>
+    <string name="theme_mode_dark">Dark</string>
+
+    <!-- About -->
+    <string name="about_eyebrow">ABOUT</string>
+    <string name="about_title">Clockwise</string>
+    <string name="about_version_title">Version</string>
+    <string name="about_version_body">1.0.10</string>
+    <string name="about_privacy_title">Private by design</string>
+    <string name="about_privacy_body">Clockwise has no internet permission. There is no server, no account, no sync and no analytics. Your cities, labels and preferences never leave this device.</string>
+    <string name="about_footnote">Made for anyone who keeps an eye on more than one time zone.</string>
+
+    <!-- Legal & Support accordion -->
+    <string name="legal_privacy_title">Zero-Internet &amp; Privacy Policy</string>
+    <string name="legal_privacy_body">Clockwise runs offline-first: it asks for no internet permission, keeps no account, runs no server and collects nothing. Every city, alarm, timer and preference is stored on this device, and the alarm and vault information stays in local storage until you delete it. Nothing the app holds ever leaves the phone.</string>
+    <string name="legal_guide_title">App Guide &amp; Chronos Tips</string>
+    <string name="legal_guide_body">Global clocks show the local time of each saved city and how far it sits from your own; the meeting planner finds an hour that works across time zones; alarms repeat on the days you choose and one-shots switch themselves off after ringing; the timer keeps counting while the app is closed; swipe up to snooze and slide to stop. Chronos widgets bring those clocks to the home screen, one style per widget, pinned from the gallery.</string>
+    <string name="legal_terms_title">Terms of Service</string>
+    <string name="legal_terms_body">Clockwise is a personal offline-first clock and alarm app. By using it you accept that it stores your cities, alarms, timers and preferences locally on your device, that it keeps no account or sync service, and that the alarm times you configure are yours to keep. The service is provided as-is for personal use; you may not redistribute it or use it for automated access. The Android platform and the open-source components it is built from keep their own licenses.</string>
+    <string name="legal_licenses_title">Open Source Licenses</string>
+    <string name="legal_licenses_body">Clockwise is built on open-source foundations: Kotlin, Jetpack Compose, Material 3, Room and the Android AlarmManager and media playback APIs, and each keeps its own license. The Clockwise application code is distributed with these terms; no bundled component here phones home, and none of them needs a network to read their terms.</string>
+    <string name="legal_about_title">About &amp; Version Info &amp; Feedback</string>
+    <string name="legal_show_intro">Show intro</string>
+    <string name="legal_send_feedback">Send feedback</string>
+    <string name="legal_developer_name">PJ95 Studio</string>
+
+    <string name="settings_alarms_label">ALARMS</string>
+    <string name="settings_alarms_hint">What the system allows an alarm to do. Tap a row to open the setting.</string>
+    <string name="settings_exact_alarms">Exact alarms</string>
+    <string name="settings_exact_alarms_support">Ring at the minute you chose, even in Doze.</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notifications_support">The ring and the timer appear here.</string>
+    <string name="settings_dnd">Allow alarms through Do Not Disturb</string>
+    <string name="settings_dnd_support">Needs notification policy access.</string>
+    <string name="settings_battery">Battery optimisation</string>
+    <string name="settings_battery_support">Exempt the app so alarms are not delayed in the background.</string>
+    <string name="settings_full_screen">Full-screen alarms</string>
+    <string name="settings_full_screen_support">Open the alarm over the lock screen so it is seen at once.</string>
+
+    <string name="settings_status_allowed">ALLOWED</string>
+    <string name="settings_status_action">ALLOW</string>
+    <string name="settings_status_on">ON</string>
+    <string name="settings_status_off">OFF</string>
+    <string name="settings_status_exempt">EXEMPT</string>
+    <string name="settings_status_check">CHECK</string>
+
+    <string name="settings_extras_label">EXTRAS</string>
+    <string name="settings_screen_saver">Screen saver</string>
+    <string name="settings_screen_saver_support">A full-screen desk clock. Tap to exit.</string>
+    <string name="settings_privacy">Privacy policy</string>
+    <string name="settings_privacy_support">No account, no network, no data collection.</string>
+    <string name="settings_help">Help</string>
+    <string name="settings_help_support">Alarms, timers and the permissions they need.</string>
+    <string name="settings_feedback">Send feedback</string>
+    <string name="settings_feedback_support">Opens your mail app with a short diagnostic note.</string>
+
+    <!-- The fixed themes, plus the wallpaper-derived one -->
+    <string name="theme_light_monochrome">Light Monochrome</string>
+    <string name="theme_warm_sepia">Warm Sepia</string>
+    <string name="theme_cool_slate">Cool Slate</string>
+    <string name="theme_material_you">Material You</string>
+
+    <!-- First-launch intro -->
+    <string name="onboarding_eyebrow">WELCOME</string>
+    <string name="onboarding_title">Every clock, at a glance.</string>
+    <string name="onboarding_support">Keep the places that matter beside your own time. No account, no connection required.</string>
+    <string name="onboarding_feature_time_title">Clocks that stay right</string>
+    <string name="onboarding_feature_time_body">Every saved city shows its local time and how far it is from yours.</string>
+    <string name="onboarding_feature_plan_title">Plan across time zones</string>
+    <string name="onboarding_feature_plan_body">Find an hour that works for everyone, or see which cities are already in daylight.</string>
+    <string name="onboarding_feature_private_title">Private by design</string>
+    <string name="onboarding_feature_private_body">Everything stays on this device. The app never asks for the internet.</string>
+    <string name="onboarding_action">Get started</string>
+    <string name="onboarding_footnote">You can replay this any time from Settings.</string>
+
+    <!-- Screen saver -->
+    <string name="screen_saver_exit_hint">TAP ANYWHERE TO EXIT</string>
+    <string name="a11y_screen_saver">Screen saver clock. Tap to return to the app.</string>
+
+    <!-- Privacy policy -->
+    <string name="privacy_eyebrow">PRIVATE BY DESIGN</string>
+    <string name="privacy_title">Privacy policy</string>
+    <string name="privacy_offline_title">Nothing leaves your phone</string>
+    <string name="privacy_offline_body">Clockwise does not request the internet permission. There is no server, no account and no sync. Every clock, alarm, timer and preference is computed and stored on this device.</string>
+    <string name="privacy_stored_title">What is stored</string>
+    <string name="privacy_stored_body">Your saved cities, city labels, alarms, the running timer, display preferences and whether the intro has been shown. These live in the app\'s private storage and are removed when you uninstall the app or clear its data.</string>
+    <string name="privacy_ads_title">No ads, trackers or analytics</string>
+    <string name="privacy_ads_body">No advertising SDK, analytics library, crash reporter or billing library is included. The app cannot send a crash report, an install event or a usage statistic, because it has no way to reach a network.</string>
+    <string name="privacy_feedback_title">Feedback is yours to send</string>
+    <string name="privacy_feedback_body">Send feedback opens your own mail app with a short diagnostic note — app version, Android version, device model, locale, time zone and alarm permission states. Nothing is sent until you press send in that app, and you can edit or delete every line first.</string>
+    <string name="privacy_control_title">Your control</string>
+    <string name="privacy_control_body">You can remove a city, an alarm or the timer at any time, or clear all app data from Android settings. There is no profile to delete and no request to make.</string>
+    <string name="privacy_footnote">Last updated October 2026 · applies to Clockwise 1.0 and later.</string>
+
+    <!-- Help -->
+    <string name="help_eyebrow">HOW IT WORKS</string>
+    <string name="help_title">Help</string>
+    <string name="help_alarms_title">Alarms and timers</string>
+    <string name="help_alarms_body">An alarm repeats on the days you choose; a one-shot alarm switches itself off after it rings. Tap the hourglass in the Alarms header to open the timer, and the close button or Back to return. The timer keeps counting while the app is closed and survives a reboot. A ringing alarm opens full screen over the lock screen and sounds on the alarm stream, so it is heard even in Doze or silent mode.</string>
+    <string name="help_exact_title">Exact alarms</string>
+    <string name="help_exact_body">Android may delay background work, so the app asks for exact alarms. On Android 13 and later this is granted automatically to alarm-clock apps. On Android 12 and 12L, open Settings → Alarms → Exact alarms and allow it. Without it, alarms still ring, but they may be a few minutes late.</string>
+    <string name="help_notifications_title">Notifications and the lock screen</string>
+    <string name="help_notifications_body">The ring is a notification with a full-screen intent, which is what lets it appear over the lock screen. Allow notifications for the app, and do not silence its alarm channel. If you deny notifications, the alarm screen can still open when you tap the app, but the phone will not ring on its own.</string>
+    <string name="help_dnd_title">Do Not Disturb</string>
+    <string name="help_dnd_body">The alarm and timer channels are marked to bypass Do Not Disturb. To make that effective, grant notification policy access in Settings → Alarms → Do Not Disturb. The app never changes your DND schedule and never turns DND on or off.</string>
+    <string name="help_battery_title">Battery optimisation</string>
+    <string name="help_battery_body">Some phones delay background alarms aggressively. If an alarm has ever arrived late, exempt Clockwise from battery optimisation in Settings → Alarms → Battery optimisation. The app does not ask for the exemption automatically, because that prompt is easy to distrust.</string>
+    <string name="help_screensaver_title">Screen saver</string>
+    <string name="help_screensaver_body">Settings → Screen saver shows a full-screen desk clock. The type drifts slowly to avoid burn-in, and the display stays awake until you tap or press Back. It is not an Android Daydream and stops as soon as you leave it.</string>
+    <string name="help_footnote">Everything here works without a connection.</string>
+
+    <!-- Chronos Studio -->
+    <string name="studio_eyebrow">CHRONOS</string>
+    <string name="studio_title">Chronos gallery</string>
+    <string name="studio_support">Home-screen clocks for the places you follow. Every style stays on this device.</string>
+    <string name="studio_section_gallery">STYLES</string>
+    <string name="studio_section_pinned">ON YOUR HOME SCREEN</string>
+    <string name="studio_section_unlock">ALL-ACCESS UNLOCK</string>
+
+    <string name="studio_style_slate">Slate</string>
+    <string name="studio_style_dial">24-hour dial</string>
+    <string name="studio_style_global_clocks">Global clocks</string>
+    <string name="studio_style_ambient_grid">Ambient grid</string>
+    <string name="studio_style_market_sessions">Market sessions</string>
+    <string name="studio_style_slate_body">The device clock with one-tap timer and stopwatch.</string>
+    <string name="studio_style_dial_body">A full turn of the day, with two cities beside it.</string>
+    <string name="studio_style_global_clocks_body">Three places, their local times and the days they are already on.</string>
+    <string name="studio_style_ambient_grid_body">A quiet 2×2 of the places you follow.</string>
+    <string name="studio_style_market_sessions_body">Sydney, Tokyo, London and New York with live open/closed dots — computed offline.</string>
+
+    <string name="studio_badge_free">FREE</string>
+    <string name="studio_badge_unlocked">UNLOCKED</string>
+    <string name="studio_badge_trial">TRIAL</string>
+    <string name="studio_badge_locked">PREMIUM</string>
+
+    <string name="studio_status_free">Free with the app.</string>
+    <string name="studio_status_unlocked">Unlocked on this account.</string>
+    <string name="studio_status_locked">Try it for three days, or unlock every style.</string>
+    <string name="studio_status_trial">%1$s left in your trial.</string>
+    <string name="studio_status_trial_expired">This style\'s trial has ended.</string>
+
+    <string name="studio_action_pin">Add to home screen</string>
+    <string name="studio_action_trial">Start 3-day trial</string>
+    <string name="studio_action_edit_cities">Change cities</string>
+
+    <string name="studio_purchase_title">Unlock every style</string>
+    <string name="studio_purchase_body">One purchase, kept by Google Play. It unlocks both premium styles on this account — no subscription, no ads.</string>
+    <string name="studio_purchase_button">Unlock everything · %1$s</string>
+    <string name="studio_purchase_button_unknown_price">Unlock everything</string>
+    <string name="studio_purchase_owned">All-access is active on this account. Thank you.</string>
+    <string name="studio_restore">Restore purchase</string>
+    <string name="studio_billing_unavailable">Google Play isn\'t available on this device. Every free style still works.</string>
+    <string name="studio_offline_body">A purchase is the only thing that ever touches the network. Your clocks, alarms, timers and pinned widgets keep working without it.</string>
+
+    <string name="studio_cities_title">Cities on this widget</string>
+    <string name="studio_cities_body">Choose three places. They appear on the widget in this order.</string>
+    <string name="studio_cities_save">Save</string>
+    <string name="studio_cities_cancel">Cancel</string>
+
+    <string name="studio_msg_trial_started">Trial started. Three days left.</string>
+    <string name="studio_msg_trial_used">This style\'s trial has already been used.</string>
+    <string name="studio_msg_pin_requested">Check your home screen to place the widget.</string>
+    <string name="studio_msg_pin_unavailable">This launcher can\'t add widgets from inside an app. Add it from the widget picker instead.</string>
+    <string name="studio_msg_cities_saved">Cities updated.</string>
+    <string name="studio_msg_purchase_complete">Unlocked. Every premium style is yours.</string>
+    <string name="studio_msg_restored">Purchase restored.</string>
+    <string name="studio_msg_nothing_to_restore">No purchase found for this account.</string>
+    <string name="studio_msg_purchase_cancelled">Purchase cancelled.</string>
+    <string name="studio_msg_purchase_failed">The purchase couldn\'t be completed.</string>
+    <string name="studio_msg_billing_unavailable">Google Play isn\'t available right now.</string>
+
+    <!-- Chronos Studio widgets -->
+    <string name="studio_widget_locked_eyebrow">CHRONOS STUDIO</string>
+    <string name="studio_widget_locked_title">Unlock this style</string>
+    <string name="studio_widget_locked_action">Tap to open Studio</string>
+    <string name="studio_widget_slate_title">LOCAL TIME</string>
+    <string name="studio_widget_world_title">GLOBAL CLOCKS</string>
+    <string name="studio_widget_ambient_title">AMBIENT</string>
+    <string name="studio_widget_market_title">MARKET SESSIONS</string>
+    <string name="studio_widget_timer">Timer</string>
+    <string name="studio_widget_stopwatch">Stopwatch</string>
+
+    <string name="widget_slate_label">Chronos · Slate</string>
+    <string name="widget_dial_label">Chronos · 24-hour dial</string>
+    <string name="widget_global_clocks_label">Chronos · Global clocks</string>
+    <string name="widget_ambient_label">Chronos · Ambient grid</string>
+    <string name="widget_market_sessions_label">Chronos · Market sessions</string>
+    <string name="widget_slate_description">The device clock with timer and stopwatch shortcuts.</string>
+    <string name="widget_dial_description">One turn of the day, with two cities beside it.</string>
+    <string name="widget_global_clocks_description">Three places and their local times.</string>
+    <string name="widget_ambient_description">A quiet grid of the places you follow.</string>
+    <string name="widget_market_sessions_description">Sydney, Tokyo, London and New York with offline open/closed indicators.</string>
+
+    <!-- Widget configuration -->
+    <string name="widget_config_title">Choose three cities</string>
+    <string name="widget_config_body">They appear on the widget in this order. You can change them later in Chronos Studio.</string>
+    <string name="widget_config_save">Add widget</string>
+    <string name="widget_config_change">Change</string>
+    <string name="widget_config_cancel">Cancel</string>
+
+    <!-- Feedback -->
+    <string name="feedback_subject">Clockwise feedback</string>
+    <string name="feedback_chooser">Send feedback</string>
+    <string name="feedback_diagnostics_label">Clockwise diagnostics</string>
+    <string name="feedback_body_placeholder">What happened?\n\n(Describe the problem above. The lines above this one are optional diagnostics.)</string>
+    <string name="feedback_copied">No mail app found. Diagnostics copied to the clipboard.</string>
+
+    <!-- Errors -->
+    <string name="error_storage_read">Couldn\'t read your saved cities. Showing defaults.</string>
+    <string name="error_storage_write">Couldn\'t save your changes.</string>
+
+    <!-- Accessibility labels -->
+    <string name="a11y_add_city">Add city</string>
+    <string name="a11y_add_alarm">Add alarm</string>
+    <string name="a11y_edit_alarm">Edit alarm at %1$s</string>
+    <string name="a11y_alarm_toggle">%1$s alarm</string>
+    <string name="a11y_alarm_day">Repeat on %1$s</string>
+    <string name="a11y_alarm_hour_wheel">Hour</string>
+    <string name="a11y_alarm_minute_wheel">Minute</string>
+    <string name="a11y_alarm_sound_selected">%1$s, selected</string>
+    <string name="a11y_timer_remaining">%1$s remaining</string>
+    <string name="a11y_timer_add_minutes">Add %1$d minutes to the timer</string>
+    <string name="a11y_settings">Settings</string>
+    <string name="a11y_widget_gallery">Widget gallery</string>
+    <string name="a11y_stop_alarm">Stop the alarm</string>
+    <string name="a11y_snooze_alarm">Snooze the alarm</string>
+    <string name="a11y_daytime">Daytime</string>
+    <string name="a11y_nighttime">Nighttime</string>
+    <string name="a11y_open_city_detail">Open %1$s</string>
+    <string name="a11y_add_named_city">Add %1$s</string>
+    <string name="a11y_city_already_added">%1$s is already added</string>
+    <string name="a11y_map_marker">%1$s, %2$s, %3$s</string>
+    <string name="a11y_map_marker_selected">%1$s, %2$s, %3$s, selected city</string>
+    <string name="a11y_map_view_flat">Flat map</string>
+    <string name="a11y_map_view_globe">Globe</string>
+    <string name="a11y_map_compare_city">%1$s, %2$s, %3$s</string>
+    <string name="a11y_world_map">Schematic world map</string>
+    <string name="a11y_utc_ruler">UTC offset ruler</string>
+    <string name="a11y_map_time_slider">Map time of day</string>
+    <string name="a11y_map_solar">Sunrise %1$s, sunset %2$s in %3$s</string>
+    <string name="a11y_map_solar_polar_day">Midnight sun in %1$s: the sun does not set</string>
+    <string name="a11y_map_solar_polar_night">Polar night in %1$s: the sun does not rise</string>
+    <string name="a11y_difference_from_your_time">Compared with your local time: %1$s</string>
+    <string name="a11y_edit_city_label">Edit label for %1$s</string>
+    <string name="a11y_meeting_planner">Plan a meeting across time zones</string>
+    <string name="a11y_meeting_time_slider">Meeting time</string>
+    <string name="a11y_planner_row">Meeting time in %1$s: %2$s, %3$s</string>
+    <string name="a11y_planner_source">Show times in %1$s</string>
+    <string name="a11y_planner_source_device">Show times in your local time</string>
+    <string name="a11y_planner_best">Best time %1$s: %2$d cities within working hours</string>
+    <string name="a11y_planner_apply_best">Use the best time</string>
+    <string name="a11y_planner_no_overlap">No time puts two or more cities within working hours</string>
+    <string name="a11y_city_label_field">Label for %1$s</string>
+    <string name="a11y_move_city_up">Move up</string>
+    <string name="a11y_move_city_down">Move down</string>
+    <string name="a11y_remove_city">Remove city</string>
+    <string name="a11y_move_alarm_up">Move up</string>
+    <string name="a11y_move_alarm_down">Move down</string>
+    <string name="a11y_delete_alarm">Delete alarm</string>
+    <string name="planner_within_hours">within working hours</string>
+    <string name="planner_outside_hours">outside working hours</string>
+
+    <!-- Launcher shortcuts -->
+    <string name="shortcut_add_city_short">Add city</string>
+    <string name="shortcut_add_city_long">Search for a city</string>
+    <string name="shortcut_planner_short">Plan</string>
+    <string name="shortcut_planner_long">Plan a meeting</string>
+    <string name="shortcut_map_short">Map</string>
+    <string name="shortcut_map_long">Open the world map</string>
+    <string name="shortcut_city_long">Time in %1$s</string>
+
+    <!-- Home-screen widget -->
+    <string name="widget_title">WORLD TIME</string>
+    <string name="widget_description">Your saved cities and their local times, updated every minute.</string>
+    <string name="widget_empty">No cities saved. Tap to add one.</string>
+    <string name="a11y_widget_refresh">Refresh widget</string>
+
+    <plurals name="widget_more_cities">
+        <item quantity="one">+%1$d more city</item>
+        <item quantity="other">+%1$d more cities</item>
+    </plurals>
+</resources>

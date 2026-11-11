@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night variant of the launch theme. Picked by the system from the device
+         setting, so it matches the app whenever the theme is System (the
+         default). An explicit Light/Dark choice is applied in Compose; see the
+         known issue about the first frame. -->
+    <style name="Theme.Clockwise" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/wc_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

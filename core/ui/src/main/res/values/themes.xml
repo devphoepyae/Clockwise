@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base launch theme. The real UI is provided by Compose; this theme only
+         controls the window before Compose draws, and avoids the default
+         Material purple accent. -->
+    <style name="Theme.Clockwise" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/wc_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

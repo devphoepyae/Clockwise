@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The free 24-hour dial. A square card, because a full turn of the day reads as
+  a circle; three cells each way is the smallest size at which the two city
+  times under the dial still fit on one line.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:configure="com.pj95.clockwise.widget.WidgetConfigActivity"
+    android:description="@string/widget_dial_description"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:minHeight="180dp"
+    android:minResizeHeight="180dp"
+    android:minResizeWidth="180dp"
+    android:minWidth="180dp"
+    android:previewImage="@drawable/widget_preview"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="3"
+    android:targetCellWidth="3"
+    android:updatePeriodMillis="1800000"
+    android:widgetCategory="home_screen"
+    tools:targetApi="31" />

@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Glance updates widgets through WorkManager, whose manifest declares a
+      network-state permission for network-constrained work. This app never
+      enqueues network work, so the permission is removed rather than shipped.
+    -->
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:node="remove" />
+
+    <!--
+      Play Billing ships `INTERNET` in its own manifest because some builds use
+      it for server-side receipt validation. This app never validates receipts
+      online: the client binds to the Play Store app, which owns the network
+      call. Removing the permission keeps the "zero internet" contract true for
+      the whole merged manifest, and the guardrail test enforces it.
+    -->
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        tools:node="remove" />
+
+    <!--
+      Alarms. `USE_EXACT_ALARM` is granted automatically to alarm-clock apps on
+      Android 13+; older releases use the user-grantable `SCHEDULE_EXACT_ALARM`.
+      The boot permission is what re-arms a stored alarm after a restart, and the
+      full-screen intent is how the ring reaches a locked phone.
+    -->
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
+    <!--
+      Play Billing. This is the app's only Google-service permission: it grants
+      the billing client access to the Play Store app, not to the internet, and
+      nothing else in the app imports it.
+    -->
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <!--
+      The ring itself. A foreground service keeps the alarm alive when the app
+      is swiped away or the screen goes off; `mediaPlayback` is the honest type
+      for a looping alarm tone, and the service declares the matching type so
+      Android 14 can enforce it. `WAKE_LOCK` is what `MediaPlayer.setWakeMode`
+      needs to keep the CPU up while the alarm plays.
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".ClockwiseApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Clockwise">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Clockwise"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Long-press shortcuts: three fixed actions in XML, plus the
+                 user's first saved cities published at runtime. -->
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+
+        <!--
+          The ringing screen. Not exported: it is opened by this app's own
+          full-screen intent and notification actions. It shows over the
+          keyguard, turns the display on and stays portrait like the rest of the
+          app.
+        -->
+        <activity
+            android:name=".alarm.AlarmRingingActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:showWhenLocked="true"
+            android:theme="@style/Theme.Clockwise"
+            android:turnScreenOn="true"
+            tools:ignore="LockedOrientationActivity"
+            tools:targetApi="o_mr1" />
+
+        <!--
+          The timer's ringing screen. Same contract as the alarm's: opened by
+          this app's own full-screen intent, over the keyguard, portrait.
+        -->
+        <activity
+            android:name=".alarm.TimerRingingActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:showWhenLocked="true"
+            android:theme="@style/Theme.Clockwise"
+            android:turnScreenOn="true"
+            tools:ignore="LockedOrientationActivity"
+            tools:targetApi="o_mr1" />
+
+        <!--
+          The in-app desk clock. Launched only from Settings, never exported;
+          it hides the system bars and keeps the display awake while visible.
+        -->
+        <activity
+            android:name=".screensaver.ScreenSaverActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Clockwise"
+            tools:ignore="LockedOrientationActivity" />
+
+        <!--
+          The alarm trigger. Only this app's `PendingIntent` sends it, so it is
+          not exported.
+        -->
+        <receiver
+            android:name=".alarm.AlarmReceiver"
+            android:exported="false" />
+
+        <!--
+          The ring. Started by the trigger above, stopped by Dismiss or Snooze.
+          `stopWithTask="false"` is deliberate: swiping the app away must not
+          silence an alarm that is already ringing.
+        -->
+        <service
+            android:name=".alarm.AlarmRingingService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback"
+            android:stopWithTask="false" />
+
+        <!--
+          The timer trigger and the actions on its notification. Only this app's
+          `PendingIntent` sends them, so the receiver is not exported.
+        -->
+        <receiver
+            android:name=".alarm.TimerReceiver"
+            android:exported="false" />
+
+        <!--
+          Re-arms stored alarms after a reboot, an app update, or a manual clock
+          or timezone change. All four are protected broadcasts, so the receiver
+          stays unexported and still hears them.
+        -->
+        <receiver
+            android:name=".alarm.AlarmRescheduleReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          The home-screen widget (spec section 5.11). Exported because that is
+          how the launcher, not other apps, talks to an app widget provider; the
+          provider info declares the resizable 4x4 default footprint and the
+          30-minute backstop.
+        -->
+        <receiver
+            android:name=".widget.ClockwiseWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_title">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/clockwise_widget_info" />
+        </receiver>
+
+        <!--
+          The minute ticker stays inside the app: only the widget's own alarm
+          sends this broadcast, so the receiver is not exported.
+        -->
+        <receiver
+            android:name=".widget.WidgetTickerReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.pj95.clockwise.action.WIDGET_TICK" />
+                <!-- A manual time change, a zone change or a date rollover
+                     changes every row on the card; redraw on the spot rather
+                     than leaving stale hours until the next alarm. -->
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          Chronos Studio's four styles. Each is its own provider so the launcher
+          can pin two different styles side by side; they share the Glance
+          content and the minute ticker. Exported because that is how the
+          launcher talks to an app widget provider, and each declares the same
+          configure activity so a new card starts with the user's cities.
+        -->
+        <receiver
+            android:name=".widget.FreeSlateWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_slate_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/studio_slate_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.Dial24hWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_dial_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/studio_dial_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.MarketSessionsWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_market_sessions_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/studio_market_sessions_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.GlobalClocksWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_global_clocks_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/studio_global_clocks_widget_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.AmbientGridWidgetReceiver"
+            android:exported="true"
+            android:label="@string/widget_ambient_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/studio_ambient_widget_info" />
+        </receiver>
+
+        <!--
+          The launcher's answer to a pin request. Only our own PendingIntent
+          sends it, so it is not exported.
+        -->
+        <receiver
+            android:name=".widget.WidgetPinResultReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.pj95.clockwise.action.WIDGET_PINNED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          The three-city chooser the launcher opens before placing a Studio
+          widget. Exported because the launcher starts it; it refuses to run
+          without a valid widget id, and it never leaves the app's task.
+        -->
+        <activity
+            android:name=".widget.WidgetConfigActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:label="@string/studio_title"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Clockwise"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

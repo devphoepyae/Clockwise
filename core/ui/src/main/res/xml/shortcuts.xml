@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Long-press launcher shortcuts (Android 7.1+).
+
+  These are the actions that are always worth reaching: search for a city and
+  plan a meeting across time zones. They are static because they are part of
+  the app's shape; the cities themselves are published as dynamic shortcuts at
+  runtime from the user's saved list, so a shortcut can never point at a city
+  the user removed or at one the catalog no longer knows.
+
+  Each intent names the activity class fully. The explicit name is kept so the
+  resource does not depend on the manifest's package resolution.
+-->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_add"
+        android:shortcutId="add-city"
+        android:shortcutLongLabel="@string/shortcut_add_city_long"
+        android:shortcutShortLabel="@string/shortcut_add_city_short">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.pj95.clockwise.MainActivity">
+            <extra
+                android:name="com.pj95.clockwise.extra.SHORTCUT"
+                android:value="add-city" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_planner"
+        android:shortcutId="planner"
+        android:shortcutLongLabel="@string/shortcut_planner_long"
+        android:shortcutShortLabel="@string/shortcut_planner_short">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.pj95.clockwise.MainActivity">
+            <extra
+                android:name="com.pj95.clockwise.extra.SHORTCUT"
+                android:value="planner" />
+        </intent>
+    </shortcut>
+</shortcuts>

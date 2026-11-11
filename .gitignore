@@ -1,0 +1,44 @@
+# Gradle
+.gradle/
+.kotlin/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# Local machine configuration (SDK path, Firebase config)
+local.properties
+google-services.json
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+captures/
+.externalNativeBuild/
+.cxx/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Android build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+output-metadata.json
+release/
+app/release/
+
+# Signing — never commit the keystore or its credentials
+*.jks
+*.keystore
+keystore.properties
+
+# Native / misc
+.DS_Store
+Thumbs.db
+*.log
+*.hprof
